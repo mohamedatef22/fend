@@ -20,6 +20,7 @@
 let numberOfSections = document.querySelectorAll("section"); 
 let firstList = true; //make first section active
 let activeSection = "section1";
+let navHight ;
 /**
  * End Global Variables
  * Start Helper Functions
@@ -167,11 +168,30 @@ document.getElementById("nav_collap_menu").addEventListener("click",function(){
     }
 });
 
-function collapseSection(event){
-    const target = event.target;
-    if(target.tagName == "section" ){
-        // target.nexts;
-        console.log("clicked");
+// function collapseSection(event){
+//     const target = event.target;
+//     if(target.tagName == "section" ){
+//         // target.nexts;
+//         console.log("clicked");
+//     }
+// }
+// document.body.addEventListener("click",collapseSection);
+
+document.getElementsByTagName("nav")[0].addEventListener("mouseover",function(){
+    document.getElementsByTagName("nav")[0].style.display = "block";
+    clearTimeout(setTimeOutToStop);
+
+});
+
+function controllNavWithMouseMove(){
+    
+    if(event.clientY <= 64 ){
+        document.getElementsByTagName("nav")[0].style.display = "block";
+        // hideNav();
+    }
+    else{
+        // console.log(event.clientX);
+        // hideNav();
     }
 }
-document.body.addEventListener("click",collapseSection);
+window.onmousemove = controllNavWithMouseMove;
