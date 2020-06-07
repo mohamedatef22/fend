@@ -10,6 +10,9 @@
 
 
 /* ---- Base Rules ---- */
+html{
+    scroll-behavior: smooth;
+}
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -68,12 +71,23 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
+    color: #000;
 }
 
 .navbar__menu li {
     display: inline-block;
+    padding: 1.25em;
+    border-bottom: .25em solid #fff;
+    margin: 0;
 }
-
+.navbar__menu li:hover {
+    cursor: pointer;
+    background: rgb(136,203,171);
+    border-bottom: .25em solid rgb(136, 203, 171);   
+}
+.navbar__menu li.nav__active,.navbar__menu .menu__link.active{
+    border-bottom: .25em solid #333;
+}
 .navbar__menu .menu__link {
     display: block;
     padding: 1em;
@@ -83,11 +97,45 @@ section {
 }
 
 .navbar__menu .menu__link:hover {
-    background: #333;
+    background: rgb(136,203,171);
     color: #fff;
-    transition: ease 0.3s all;
+    /* transition: ease 0.3s all; */
+
 }
 
+
+
+.navbar__menu li.hide{
+    display: none;
+}
+
+#nav_collap_menu{
+    float: right;
+    padding-top: 1.25em;
+    display: none;
+}
+
+/* TopButton Style */
+#toTopButton {
+    display: none;
+    position: fixed;
+    bottom: 1.5em;
+    right: 2em;
+    z-index: 99;
+    height: 5em;
+    width: 5em;
+    border-radius: 100%;
+    outline: none;
+    background-color: rgb(255, 29, 29);
+    /* color: white; */
+    cursor: pointer;
+    padding: 1em;
+    border: none;
+  }
+#toTopButton:hover{
+background-color: #333;
+color: #fff;
+}
 /* Header Styles */
 .page__header {
     background: #fff;
